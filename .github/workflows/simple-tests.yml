@@ -1,0 +1,10 @@
+name: simple-tests
+
+on: push
+
+jobs:
+    test:
+        name: test
+        runs-on: ubuntu-latest # for underlying VM, not for container
+        steps:
+            - run: dotnet --version
