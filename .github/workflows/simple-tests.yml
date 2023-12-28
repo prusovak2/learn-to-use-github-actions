@@ -7,6 +7,8 @@ jobs:
         name: test
         runs-on: ubuntu-latest # for underlying VM, not for container
         steps:
+            - uses: actions/checkout@v3         # checkout the repo
+            - run: ls
             - run: dotnet --version
-            - run: dotnet restore
-            - run: dotnet test .\MyTests\MyTests.csproj
+            - run: dotnet restore ./GithubActionsPoc/GithubActionsPoc.sln
+            - run: dotnet test ./MyTests/MyTests.csproj
