@@ -8,3 +8,5 @@ jobs:
         runs-on: ubuntu-latest # for underlying VM, not for container
         steps:
             - run: dotnet --version
+            - run: dotnet restore
+            - run: dotnet test .\MyTests\MyTests.csproj
