@@ -11,10 +11,15 @@ jobs:
     test:
         name: test
         runs-on: ubuntu-latest # for underlying VM, not for container
+        container: 
+          image: prusovak2/lanatra-test-envs:ubuntu-java20
+          options: --user 1001
         steps:
             - uses: actions/checkout@v3         # checkout the repo
             - run: ls
             - run: dotnet --version
+            - run: java --version
+            - run: echo $JAVA_HOME
             - run: dotnet restore ./GithubActionsPoc/GithubActionsPoc.sln
             - run: dotnet test ./MyTests/MyTests.csproj --logger "trx;LogFileName=test-results.trx"
             
